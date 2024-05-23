@@ -5,14 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://j0milu8gt6al" path="res://Scenes/Paper.tscn" id="3"]
 [ext_resource type="PackedScene" uid="uid://8c3m2oa14mit" path="res://Scenes/button.tscn" id="4_4lavg"]
 [ext_resource type="Script" path="res://Scripts/Buttons.gd" id="5_mnd3i"]
-[ext_resource type="Texture2D" uid="uid://b40ab2ln4i0i2" path="res://Assets/back.jpg" id="6_ahd61"]
+[ext_resource type="PackedScene" uid="uid://4rh3wxv2vh0f" path="res://Scenes/area_2d.tscn" id="6_o6q8i"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 2.52616
 
 [node name="Game" type="Node2D"]
 script = ExtResource("2")
-metadata/_edit_horizontal_guides_ = [544.0]
 
 [node name="PaperGetter" type="Area2D" parent="."]
 collision_mask = 2
@@ -42,16 +41,16 @@ input_pickable = true
 script = ExtResource("5_mnd3i")
 
 [node name="Button" parent="Buttons" instance=ExtResource("4_4lavg")]
-offset_left = -513.0
-offset_top = 238.0
-offset_right = -216.0
-offset_bottom = 544.0
+offset_left = -432.0
+offset_top = 74.0
+offset_right = -135.0
+offset_bottom = 380.0
 
 [node name="Button2" parent="Buttons" instance=ExtResource("4_4lavg")]
-offset_left = 1182.0
-offset_top = 233.0
-offset_right = 1479.0
-offset_bottom = 539.0
+offset_left = 1087.0
+offset_top = 74.0
+offset_right = 1384.0
+offset_bottom = 380.0
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -63,8 +62,5 @@ theme_override_font_sizes/font_size = 40
 text = "Blank"
 horizontal_alignment = 1
 
-[node name="Back" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(419, -346)
-scale = Vector2(2.23115, 2.23115)
-texture = ExtResource("6_ahd61")
+[node name="Area2D" parent="." instance=ExtResource("6_o6q8i")]
+position = Vector2(197, -411)

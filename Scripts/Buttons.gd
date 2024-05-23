@@ -1,9 +1,14 @@
 extends Node
 
 var button_functions : Dictionary
+@onready var game = get_parent()
 @onready var button1 = $Button
 @onready var button2 = $Button2
 @onready var label = $"../Label"
+@onready var paper = $"../Paper"
+@onready var paper_2 = $"../Paper2"
+@onready var paper_3 = $"../Paper3"
+
 
 func _ready():
 	
@@ -21,7 +26,18 @@ func some_button_pressed(button):
 func accept():
 	label.visible = true
 	label.text = "{Name} accepted into heaven"
+	await get_tree().create_timer(1.0).timeout
+	paper.hide()
+	paper_2.hide()
+	paper_3.hide()
+	game.reset()
+	
 	
 func deny():
 	label.visible = true
 	label.text = "{Name} sent to hell"
+	await get_tree().create_timer(1.0).timeout
+	paper.queue_free()
+	paper_2.queue_free()
+	paper_3.queue_free()
+	game.reset()
