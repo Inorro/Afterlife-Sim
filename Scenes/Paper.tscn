@@ -449,8 +449,9 @@ offset_left = 15.0
 offset_top = 48.0
 offset_right = 225.0
 offset_bottom = 287.0
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
-theme_override_fonts/font = SubResource("2")
+theme_override_fonts/font = ExtResource("1")
 theme_override_font_sizes/font_size = 24
 text = "Sins
 ----"
@@ -468,7 +469,9 @@ text = "Killed Diana
 Drugs
 Doesnt flush"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="mouse_entered" from="." to="." method="mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="mouse_exited"]
+[connection signal="ready" from="." to="." method="_on_ready"]

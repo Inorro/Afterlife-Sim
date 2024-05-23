@@ -6,9 +6,6 @@ var paper_scene = preload("res://Scenes/Paper.tscn")
 var scene = preload("res://Scenes/Paper.tscn")
 @onready var button = $Buttons/Button
 @onready var button2 = $Buttons/Button2
-@onready var paper1 = $Paper
-@onready var paper2 = $Paper2
-@onready var paper3 = $Paper3
 @onready var paper1l = $Paper/Label
 @onready var paper2l = $Paper2/Label
 @onready var paper3sprite = $Paper3/Sprite2D
@@ -19,10 +16,7 @@ var scene = preload("res://Scenes/Paper.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var file = FileAccess.open("res://Data/localization.json", FileAccess.READ)
-	var data = JSON.parse_string(file.get_as_text())
-	var file_data = data
-	print(file_data)
+	print(Global.NPCdata1)
 	
 	button.set_text("Accept")
 	button2.set_text("Deny")
@@ -31,11 +25,8 @@ func _ready():
 	paper3sprite.texture = load("res://Assets/pixil-frame-0.png")
 	paper3l.text= ""
 	paper3main.text= ""
-	paper3sprite.scale = Vector2(3, 3)
-	paper1main.text = "Killed Diana
-	Drugs
-	Doesnt flush"
-	paper2main.text = "Charity"
+	paper1main.text = Global.NPCdata1[0]["Sins"]
+	paper2main.text = Global.NPCdata1[0]["Virtue"]
 	
 	for i in range(0, 2):
 		var paper = paper_scene.instantiate()
@@ -56,6 +47,6 @@ func push_paper_to_top(paper):
 	
 func reset():
 	await get_tree().create_timer(1.0).timeout
-	paper1.show()
-	paper2.show()
-	paper3.show()
+	Global.paper1.show()
+	Global.paper2.show()
+	Global.paper3.show()
